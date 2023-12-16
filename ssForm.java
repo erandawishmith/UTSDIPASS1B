@@ -22,6 +22,7 @@ public class ssForm extends Records {
     private JButton submitButton;
     private JTextField reporttxt;
     private JButton genReport;
+    private JTextArea textArea1;
     private JButton btn1;
 
     private Services servicesList = new Services(); // Assuming Services is a class
@@ -60,6 +61,14 @@ public class ssForm extends Records {
             @Override
             public void actionPerformed(ActionEvent e) {
                 reporttxt.setText(servicesList.toString());
+
+            }
+        });
+
+        genReport.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textArea1.setText(servicesList.toString());
 
             }
         });
