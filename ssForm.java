@@ -23,13 +23,18 @@ public class ssForm extends Records {
     private JTextArea reporttxt;
     private JButton editbtn;
     private JTabbedPane tabbedPane3;
-    private JTextField textField1;
-    private JTextField textField4;
-    private JButton SHOWButton;
-    private JTextField textField5;
-    private JTextField textField2;
-    private JTextField textField3;
+    private JTextField tecNameAdd;
+    private JTextField tecID;
+    private JButton findTec;
     private JTabbedPane tabbedPane2;
+    private JTextField tecContactNumberAdd;
+    private JTextField tecLevelAdd;
+    private JButton tecAddButton;
+    private JTextField tecName;
+    private JTextField tecContactNumber;
+    private JTextField tecLevel;
+    private JButton tecEditButton;
+    private JTextArea reporttxtTec;
     private JButton btn1;
 
     private Services servicesList = new Services(); // Assuming Services is a class
@@ -54,7 +59,7 @@ public class ssForm extends Records {
                 String serviceType = sevTypeAdd.getText();
 
                 // Create a new Service instance
-                Service service = new Service( ++id, customerName, vehicleModel, date, ServiceType.FULL_SERVICE, Status.Booked);
+                Service service = new Service(++id, customerName, vehicleModel, date, ServiceType.FULL_SERVICE, Status.Booked);
 
                 // Add the service to the servicesList
                 servicesList.add(service);
@@ -68,6 +73,7 @@ public class ssForm extends Records {
             @Override
             public void actionPerformed(ActionEvent e) {
                 reporttxt.setText(servicesList.toString());
+                reporttxtTec.setText(technicianList.toString());
 
             }
         });
@@ -119,7 +125,7 @@ public class ssForm extends Records {
                         Service newService = new Service(id, customerName, vehicleModel, date, ServiceType.FULL_SERVICE, Status.Booked);
 
                         // Update the service in the servicesList
-                        Service updatedService = servicesList.updateService(id-1, newService);
+                        Service updatedService = servicesList.updateService(id - 1, newService);
 
                         // Optional: Display a confirmation message
                         JOptionPane.showMessageDialog(mainPanel, "Service edited successfully!");
@@ -134,7 +140,88 @@ public class ssForm extends Records {
         });
 
 
+        gotoTechnicianButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tabbedPane1.setSelectedIndex(2);
+            }
+        });
+
+        tecAddButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String tecName = tecNameAdd.getText();
+                String contactNumber = tecContactNumberAdd.getText();
+                String level = tecLevelAdd.getText();
+
+
+                // Create a new Service instance
+                Technician technician = new Technician(++id, tecName, contactNumber, level);
+
+                // Add the service to the servicesList
+                technicianList.add(technician);
+
+                // Optional: Display a confirmation message
+                JOptionPane.showMessageDialog(mainPanel, "Technician added successfully!");
+                technicianList.show();
+            }
+        });
+
+
+        findTec.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = Integer.parseInt(tecID.getText());
+                Technician technician = technicianList.find(id);
+                System.out.println(id);
+
+                if (technician != null) {
+                    String number = technician.contactNumber;
+                    String level = technician.level;
+
+                    tecName.setText(technician.getName());
+                    tecContactNumber.setText(number);
+                    tecLevel.setText(level);
+
+//
+
+                } else {
+                    JOptionPane.showMessageDialog(mainPanel, "Technician not found with ID: " + id);
+                }
+            }
+        });
+        tecEditButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int id = Integer.parseInt(tecID.getText());
+                    Technician technician = technicianList.find(id);
+
+                    if (technician != null) {
+                        // Display the existing technician details
+                        String technicianName = tecName.getText();
+                        String contactNumber = tecContactNumber.getText();
+                        String level = tecLevel.getText();
+
+                        // Create a new Technician instance with updated values
+                        Technician newTechnician = new Technician(id, technicianName, contactNumber, level);
+
+                        // Update the technician in the technicianList
+                        technicianList.updateTechnician(id - 1, newTechnician);
+
+                        // Optional: Display a confirmation message
+                        JOptionPane.showMessageDialog(mainPanel, "Technician edited successfully!");
+                        technicianList.show();
+                    } else {
+                        JOptionPane.showMessageDialog(mainPanel, "Technician not found with ID: " + id);
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(mainPanel, "Invalid Technician ID. Please enter a valid integer.");
+                }
+            }
+        });
     }
+
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("ssForm");
@@ -143,11 +230,7 @@ public class ssForm extends Records {
         frame.pack();
         frame.setVisible(true);
     }
-
-
-
-
-    //Technician
-
-
 }
+
+
+
