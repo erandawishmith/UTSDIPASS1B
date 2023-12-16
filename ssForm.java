@@ -20,9 +20,8 @@ public class ssForm extends Records {
     private JTextField sevTypeAdd;
     private JButton findID;
     private JButton submitButton;
-    private JTextField reporttxt;
     private JButton genReport;
-    private JTextArea textArea1;
+    private JTextArea reporttxt;
     private JButton btn1;
 
     private Services servicesList = new Services(); // Assuming Services is a class
@@ -65,13 +64,7 @@ public class ssForm extends Records {
             }
         });
 
-        genReport.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                textArea1.setText(servicesList.toString());
 
-            }
-        });
     }
 
     public static void main(String[] args) {
