@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Service
+comment1.params=
+comment1.target=int\ getId()
+comment2.params=id\ name\ model\ date\ serviceType\ status
+comment2.target=Service(int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ ServiceType,\ Status)
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment4.params=model
+comment4.target=void\ setModel(java.lang.String)
+comment5.params=date
+comment5.target=void\ setDate(java.lang.String)
+comment6.params=serviceType
+comment6.target=void\ setServiceType(ServiceType)
+comment7.params=status
+comment7.target=void\ setStatus(Status)
+numComments=8
