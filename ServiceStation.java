@@ -76,6 +76,7 @@ public class ServiceStation {
     }
 
     private void editService() {
+        int id = In.readInt("Enter Service ID to edit: ");
         servicesList.edit();
         menu();
     }

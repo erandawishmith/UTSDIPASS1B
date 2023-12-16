@@ -2,10 +2,10 @@ import java.util.LinkedList;
 
 public class Service extends Record {
 
-    private String model;
-    private String date;
-    private ServiceType serviceType;
-    private Status status;
+    public String model;
+    public String date;
+    public ServiceType serviceType;
+    public Status status;
 
     public int getId() {
         return id;
