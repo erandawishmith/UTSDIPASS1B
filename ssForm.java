@@ -22,6 +22,7 @@ public class ssForm extends Records {
     private JButton submitButton;
     private JButton genReport;
     private JTextArea reporttxt;
+    private JTextArea sevEdit;
     private JButton btn1;
 
     private Services servicesList = new Services(); // Assuming Services is a class
@@ -39,7 +40,6 @@ public class ssForm extends Records {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Retrieve data from text fields
                 String customerName = sevNameAdd.getText();
                 String vehicleModel = sevModelAdd.getText();
                 String date = sevDateAdd.getText();
@@ -65,6 +65,17 @@ public class ssForm extends Records {
         });
 
 
+        findID.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = Integer.parseInt(sevID.getText());
+                Service service = (Service) find(id);
+
+                if (service != null){
+                    sevEdit.setText(service.getName());
+                }
+            }
+        });
     }
 
     public static void main(String[] args) {

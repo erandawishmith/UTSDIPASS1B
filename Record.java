@@ -16,6 +16,10 @@ public class Record {
         return name;
     }
 
+//    public String getModel() {
+//        return model;
+//    }
+
     public void show() {
         System.out.println(toString());
     }
