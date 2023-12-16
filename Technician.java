@@ -1,6 +1,6 @@
 public class Technician extends Record {
-    private String contactNumber;
-    private String level;
+    public String contactNumber;
+    public String level;
 
     public Technician(int id, String name, String contactNumber, String level) {
         super(id, name);
