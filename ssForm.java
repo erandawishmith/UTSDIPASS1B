@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ssForm {
+public class ssForm extends Records {
     private JPanel mainPanel;
     private JButton gotoServicesButton;
     private JTabbedPane tabbedPane1;
@@ -19,11 +19,15 @@ public class ssForm {
     private JTextField sevDateAdd;
     private JTextField sevTypeAdd;
     private JButton findID;
+    private JButton submitButton;
+    private JTextField reporttxt;
+    private JButton genReport;
     private JButton btn1;
 
+    private Services servicesList = new Services(); // Assuming Services is a class
+
     public ssForm() {
-
-
+//        go to services tab
         gotoServicesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,7 +36,34 @@ public class ssForm {
         });
 
 
-        }
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Retrieve data from text fields
+                String customerName = sevNameAdd.getText();
+                String vehicleModel = sevModelAdd.getText();
+                String date = sevDateAdd.getText();
+                String serviceType = sevTypeAdd.getText();
+
+                // Create a new Service instance
+                Service service = new Service( ++id, customerName, vehicleModel, date, ServiceType.FULL_SERVICE, Status.Booked);
+
+                // Add the service to the servicesList
+                servicesList.add(service);
+
+                // Optional: Display a confirmation message
+                JOptionPane.showMessageDialog(mainPanel, "Service added successfully!");
+                servicesList.show();
+            }
+        });
+        genReport.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reporttxt.setText(servicesList.toString());
+
+            }
+        });
+    }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("ssForm");
