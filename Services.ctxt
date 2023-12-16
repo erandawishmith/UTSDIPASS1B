@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Services
+comment1.params=id
+comment1.target=Service\ find(int)
+comment10.params=id\ newService
+comment10.target=Service\ updateService(int,\ Service)
+comment2.params=
+comment2.target=void\ add()
+comment3.params=
+comment3.target=void\ edit()
+comment4.params=
+comment4.target=void\ delete()
+comment5.params=customerName\ vehicleModel\ date\ serviceType\ status
+comment5.target=void\ addServiceAutomatically(java.lang.String,\ java.lang.String,\ java.lang.String,\ ServiceType,\ Status)
+comment6.params=
+comment6.target=ServiceType\ getServiceTypeFromUser()
+comment7.params=
+comment7.target=Status\ getStatusFromUser()
+comment8.params=
+comment8.target=java.lang.String\ toString()
+comment9.params=id
+comment9.target=void\ deleteService(int)
+numComments=11

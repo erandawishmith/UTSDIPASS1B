@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Technician
+comment1.params=id\ name\ contactNumber\ level
+comment1.target=Technician(int,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=contactNumber
+comment3.target=void\ setContactNumber(java.lang.String)
+comment4.params=level
+comment4.target=void\ setLevel(java.lang.String)
+numComments=5
