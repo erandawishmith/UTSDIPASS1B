@@ -30,7 +30,7 @@ public class Records    // client/group class of List Lookup pattern
     public String toString() {
         String str = "";
         for (Record record : records)
-            str += record.toString() + "\n";
+            str += record.toString() + ("\n");
         return str;
     }
 }
