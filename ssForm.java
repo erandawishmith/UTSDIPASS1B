@@ -37,8 +37,8 @@ public class ssForm extends Records {
     private JTextArea reporttxtTec;
     private JButton btn1;
 
-    private Services servicesList = new Services(); // Assuming Services is a class
-    private Technicians technicianList = new Technicians(); // Assuming Technicians is a class
+    private Services servicesList = new Services();
+    private Technicians technicianList = new Technicians();
 
     public ssForm() {
 //        go to services tab
@@ -58,13 +58,10 @@ public class ssForm extends Records {
                 String date = sevDateAdd.getText();
                 String serviceType = sevTypeAdd.getText();
 
-                // Create a new Service instance
                 Service service = new Service(++id, customerName, vehicleModel, date, ServiceType.FULL_SERVICE, Status.Booked);
 
-                // Add the service to the servicesList
                 servicesList.add(service);
 
-                // Optional: Display a confirmation message
                 JOptionPane.showMessageDialog(mainPanel, "Service added successfully!");
                 servicesList.show();
             }
