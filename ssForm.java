@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ssForm extends Records {
+    int i;
     private JPanel mainPanel;
     private JButton gotoServicesButton;
     private JTabbedPane tabbedPane1;
